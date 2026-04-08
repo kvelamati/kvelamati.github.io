@@ -6,7 +6,7 @@
     <title>Verifix IO</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html, body { height: 100%; }
@@ -20,29 +20,72 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+        }
+        header {
+            padding: 1.25rem 2rem;
+        }
+        .logo {
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        .hero {
+            margin: 0 2rem;
+            position: relative;
+            aspect-ratio: 16 / 9;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
         }
-        .hero-image {
+        .hero img {
+            position: absolute;
+            inset: 0;
             width: 100%;
-            max-width: 1200px;
-            border-radius: 4px;
-            display: block;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero h1 {
+            position: relative;
+            z-index: 2;
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            color: rgba(242, 238, 230, 0.92);
+            line-height: 1.12;
+            text-align: center;
+            max-width: 13ch;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.15);
         }
         .coming-soon {
-            margin-top: 2rem;
-            font-size: 0.875rem;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            font-size: 0.8125rem;
             font-weight: 400;
-            color: #888;
+            color: #999;
             letter-spacing: 0.06em;
             text-transform: uppercase;
+        }
+        @media (max-width: 768px) {
+            header { padding: 1rem 1.25rem; }
+            .hero { margin: 0 1.25rem; aspect-ratio: 4 / 3; }
+            .hero h1 { font-size: clamp(1.75rem, 7vw, 3rem); }
+        }
+        @media (max-width: 480px) {
+            .hero { margin: 0 1rem; }
         }
     </style>
 </head>
 <body>
     <div class="page">
-        <img class="hero-image" src="hero.png" alt="Verifix IO">
+        <header>
+            <div class="logo">Verifix IO</div>
+        </header>
+        <div class="hero">
+            <img src="hero.png" alt="">
+            <h1>Advanced Solutions for Manufacturing</h1>
+        </div>
         <p class="coming-soon">Coming Soon</p>
     </div>
 </body>
